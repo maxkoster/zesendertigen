@@ -82,11 +82,11 @@ void averageThrow(int min_number, double tries){
 int main(){
     srand(time(0));
     // odds36(1000000);
-    averageThrow(6,10000000);
-    averageThrow(5,10000000);
-    averageThrow(4,10000000);
-    averageThrow(3,10000000);
-    averageThrow(2,10000000);
-    averageThrow(1,10000000);
+    averageThrow(6,1000000);
+    averageThrow(5,1000000);
+    averageThrow(4,1000000);
+    averageThrow(3,1000000);
+    averageThrow(2,1000000);
+    averageThrow(1,1000000);
     
 }
