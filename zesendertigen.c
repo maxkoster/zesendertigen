@@ -82,6 +82,7 @@ void averageThrow(int min_number, double tries){
 int main(){
     srand(time(0));
     double tries = 1000000;
+	clock_t begin = clock();
     odds36(tries);
     averageThrow(6,tries);
     averageThrow(5,tries);
@@ -89,5 +90,7 @@ int main(){
     averageThrow(3,tries);
     averageThrow(2,tries);
     averageThrow(1,tries);
-    
+	clock_t end = clock();
+	double time_spend = (double)(end-begin)/CLOCKS_PER_SEC;
+	printf("Time spend is: %lf\n", time_spend);
 }
