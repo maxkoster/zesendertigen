@@ -20,15 +20,21 @@ def reward(total):
 dice = 6
 total = 0
 
-while dice > 0:
-    throw = random.sample(range(1,7),dice)
-    actions = getActions(throw)
-    value = [sum(i) for i in actions]
-    states = [i for i in zip(value,[len(j) for j in actions])]
-    
-    choice = random.randint(0,len(actions)-1)
-    total += value[choice]
-    dice -= len(actions[choice])
+tries = 100000
+avg = 0
+for j in range(tries):
+	print(j)
+	while dice > 0:
+		throw = random.sample(range(1,7),dice)
+		actions = getActions(throw)
+		value = [sum(i) for i in actions]
+		states = [i for i in zip(value,[len(j) for j in actions])]
+		choice = np.argmax([i[0]/i[1] for i in states]) 
+		total += value[choice]
+		dice -= len(actions[choice])
+	avg += total
 
-print(total)
-print(reward(total))
+avg = avg/tries
+
+print(avg)
+print(reward(avg))
